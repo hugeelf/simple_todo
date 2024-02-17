@@ -5,6 +5,10 @@
   border: none;
 }
 
+body {
+  overflow: hidden;
+}
+
 .app {
   display: flex;
   flex-direction: column-reverse;
