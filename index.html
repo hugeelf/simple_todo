@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>ToDo</title>
+  </head>
+  <body>
+    <div class="app">
+      <div class="todo">
+        <div class="todo__main">
+          <input type="text" class="todo__input" />
+          <button class="todo__add"></button>
+        </div>
+        <!-- <select
+          name="todo__select"
+          id="todo__select_status"
+          class="todo__options"
+        >
+          <option value="active" class="todo__option">Активные</option>
+          <option value="completed" class="todo__option">Завершенные</option>
+          <option value="deleted" class="todo__option">Удаленные</option>
+        </select> -->
+      </div>
+
+      <ul class="todo__items" todo-staus="active">
+      </ul>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
