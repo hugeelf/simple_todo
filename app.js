@@ -11,10 +11,18 @@ tasks.forEach(task => {
 });
 
 add.addEventListener('click', addTask)
+task.addEventListener('keydown', function(event){
+    if(event.keyCode === 13){
+        addTask()
+    }
+})
 tasksList.addEventListener('click', deleteTask)
 tasksList.addEventListener('click', doneTask)
 
 function addTask() {
+    if(!task.value){
+        return
+    }
     const taskName = task.value
 
     const newTask = {
