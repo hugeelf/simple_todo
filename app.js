@@ -107,18 +107,7 @@ function toggleTaskStatus(e) {
 
     if (e.target.classList.contains('todo__action_complete')
         && e.target.classList.contains('todo__action_restore')) {
-        const taskForChangeStatus = tasks.find((task) => task.id === id)
-        taskForChangeStatus.done = !taskForChangeStatus.done
-
-        const indexOfTask = tasks.indexOf(taskForChangeStatus)
-        const task = tasks[indexOfTask]
-
-        tasks.splice(indexOfTask, 1)
-        tasks.push(task)
-        parentNode.addEventListener('animationend', () => {
-            parentNode.remove()
-        })
-        renderTask(task)
+        renderTask(editLocalStorageData(id, parentNode, 'bottom'))
     }
     if (e.target.classList.contains('todo__action_delete')) {
         const indexToDelete = tasks.findIndex((task) => task.id === id)
@@ -128,20 +117,29 @@ function toggleTaskStatus(e) {
         })
     }
 
-    if((e.target.classList.contains('todo__action_complete')
-    && !e.target.classList.contains('todo__action_restore'))){
-        const taskForChangeStatus = tasks.find((task) => task.id === id)
-        taskForChangeStatus.done = !taskForChangeStatus.done
-
-        const indexOfTask = tasks.indexOf(taskForChangeStatus)
-        const task = tasks[indexOfTask]
-        tasks.splice(indexOfTask, 1)
-        tasks.unshift(task)
-        parentNode.addEventListener('animationend', () => {
-            parentNode.remove()
-        })
-        renderTask(task, 'afterbegin')
-        // console.log(parentNode)
+    if ((e.target.classList.contains('todo__action_complete')
+        && !e.target.classList.contains('todo__action_restore'))) {
+        renderTask(editLocalStorageData(id, parentNode), 'afterbegin')
     }
     saveToLocalStorage()
+}
+
+function editLocalStorageData(id, parentNode, whereToAdd = 'top') {
+    const taskForChangeStatus = tasks.find((task) => task.id === id)
+    taskForChangeStatus.done = !taskForChangeStatus.done
+
+    const indexOfTask = tasks.indexOf(taskForChangeStatus)
+    const task = tasks[indexOfTask]
+
+    tasks.splice(indexOfTask, 1)
+    if (whereToAdd === 'bottom') {
+        tasks.push(task)
+    } if (whereToAdd === 'top') {
+        tasks.unshift(task)
+    }
+
+    parentNode.addEventListener('animationend', () => {
+        parentNode.remove()
+    })
+    return task
 }
