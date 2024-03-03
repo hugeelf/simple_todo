@@ -63,6 +63,7 @@ body {
   padding: 10px 15px;
   outline: #76bc21;
   width: 100%;
+  font-size: 16px;
 }
 .todo__add, .todo__action_delete, .todo__action_complete, .todo__action_restore {
   padding: 15px;
