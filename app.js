@@ -46,7 +46,7 @@ tasksList.addEventListener('click', (e) => {
 function addTask(task) {
     const newTask = {
         id: Date.now(),
-        todoName: task,
+        text: task,
         done: false
     }
     tasks.unshift(newTask)
@@ -63,7 +63,7 @@ function renderTask(task, where = 'beforeend') {
         `
     <li class="todo__single_item" id="${task.id}">
         <span class="${taskNameClass}">
-            ${task.todoName}
+            ${task.text}
         </span>
             <div class="item__buttons">
                 <button class="${buttonClass}"></button>

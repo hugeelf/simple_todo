@@ -6,30 +6,30 @@
 }
 
 @keyframes fadein {
-	0% {
-		opacity: 0;
-		transform: translateX(-250px);
-	}
+  0% {
+    opacity: 0;
+    transform: translateX(-250px);
+  }
 
-	100% {
-		opacity: 1;
-		transform: translateX(0);
-	}
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes fadeout {
-	0% {
-		opacity: 0;
-		transform: translateX(-250px);
-	}
+  0% {
+    opacity: 0;
+    transform: translateX(-250px);
+  }
 
-	100% {
-		opacity: 1;
-		transform: translateX(0);
-	}
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-body{
+body {
   overflow: hidden;
 }
 .app {
@@ -61,7 +61,7 @@ body{
     flex-direction: row;
     justify-content: space-between;
   }
-  &__input{
+  &__input {
     border: 1px solid #76bc21;
     padding: 10px 15px;
     outline: #76bc21;
@@ -87,7 +87,7 @@ body{
     background-size: 50%;
     background-color: #76bc21;
   }
-  &__action_restore{
+  &__action_restore {
     background-image: url(../img/refresh.svg);
     background-size: 60%;
     background-color: #217ebc;
@@ -113,24 +113,25 @@ body{
     justify-content: space-between;
     gap: 10px;
     animation: fadein 500ms ease 0s 1 normal forwards;
-    &__deleted, &__done{
+    &__deleted,
+    &__done {
       animation: fadeout 500ms ease 0s 1 reverse forwards;
     }
   }
-  &__single_item:has(.item__title__done){
+  &__single_item:has(.item__title__done) {
     background: gray;
     text-decoration: line-through;
   }
 }
 
-.item{
-  &__buttons{
+.item {
+  &__buttons {
     display: flex;
     flex-direction: row;
     gap: 10px;
   }
 }
-h1{
+h1 {
   position: fixed;
   top: 20px;
 }
